@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Flor de Papel — Ideas que florecen en papel</title>
+  <meta name="description" content="Cuadernos digitales, presentaciones hermosas, infografías y más. Hecho con cariño por Flor de Papel." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --rose:#9c5d5d;
+      --blush:#e9b9bf;
+      --cream:#f7f3ee;
+      --ink:#382f2f;
+      --leaf:#8aa39b;
+      --shadow:0 10px 30px rgba(0,0,0,.08);
+      --radius:18px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--cream);color:var(--ink);font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,sans-serif;}
+    img{max-width:100%;display:block;border-radius:12px}
+    a{color:var(--rose);text-decoration:none}
+    .container{width:min(1100px,92vw);margin-inline:auto}
+    header{position:sticky;top:0;z-index:50;background:rgba(247,243,238,.8);backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid #eadfd7}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand img{width:46px;height:46px;object-fit:contain}
+    .brand h1{font-family:"Cormorant Garamond",serif;font-weight:700;font-size:1.3rem;letter-spacing:.02em;margin:0;color:var(--rose)}
+    nav a{margin-left:18px;font-weight:600}
+    .btn{display:inline-block;padding:12px 18px;border-radius:999px;background:var(--rose);color:#fff;box-shadow:var(--shadow);transition:.2s}
+    .btn:hover{transform:translateY(-1px);box-shadow:0 14px 34px rgba(156,93,93,.3)}
+
+    /* HERO */
+    .hero{padding:70px 0 40px;background:linear-gradient(180deg, #fbf8f4 0%, #fff0f4 100%);text-align:center}
+    .title{font-family:"Cormorant Garamond",serif;font-size:clamp(2rem,4.2vw,3.4rem);line-height:1.1;color:var(--ink);margin:.3rem 0}
+    .subtitle{color:#5c4f4f;max-width:52ch;margin:0 auto}
+
+    /* SECTIONS */
+    section{padding:70px 0}
+    .section-title{font-family:"Cormorant Garamond",serif;font-size:2.2rem;margin:0 0 8px;color:var(--ink);text-align:center}
+    .section-sub{text-align:center;margin:0 0 26px;color:#6b5f5f}
+
+    /* PRODUCTOS */
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+    .card{background:#fff;border-radius:var(--radius);padding:18px;box-shadow:var(--shadow);display:flex;flex-direction:column;align-items:flex-start}
+    .card h3{margin:.6rem 0 .4rem;font-size:1.1rem}
+    .pill{font-size:.78rem;background:#f7e3e6;color:#7c4d4d;padding:4px 10px;border-radius:999px;margin:8px 0}
+    .price{font-weight:700;color:var(--rose);font-size:1.1rem;margin-top:auto}
+
+    /* ORDENAR */
+    .order{background:linear-gradient(120deg,#fff,#ffeef2)}
+    .order-form{display:grid;gap:12px;background:#fff;border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
+    input,select,textarea{width:100%;padding:12px 14px;border:1px solid #e6d9d3;border-radius:12px;background:#fff;font:inherit}
+    textarea{min-height:110px}
+
+    /* FOOTER */
+    footer{background:#2b2323;color:#f3eae6;padding:28px 0;margin-top:50px}
+    .foot{display:grid;grid-template-columns:2fr 1fr 1fr;gap:16px}
+    .credits{opacity:.8}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <img src="img/logo-flor-de-papel.jpeg" alt="Flor de Papel logo">
+        <h1>Flor de Papel</h1>
+      </div>
+      <nav>
+        <a href="#productos">Productos</a>
+        <a href="#ordenar">Ordenar</a>
+        <a href="#faq">Preguntas</a>
+      </nav>
+      <a class="btn" href="#ordenar">Pedir por WhatsApp</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h2 class="title">🌸 Ideas que florecen en papel 🌸</h2>
+    <p class="subtitle">Cuadernos digitales interactivos y material de estudio personalizado. Diseñado con cariño para estudiantes que aman lo bonito y funcional.</p>
+    <a class="btn" href="#productos">Ver catálogo</a>
+  </section>
+
+  <section id="productos">
+    <div class="container">
+      <h3 class="section-title">Catálogo</h3>
+      <p class="section-sub">Recuerda: todo es digital, nada físico. Método de pago: Nequi 3053119624</p>
+      <div class="cards" id="cards"></div>
+    </div>
+  </section>
+
+  <section id="ordenar" class="order">
+    <div class="container">
+      <h3 class="section-title">Haz tu pedido</h3>
+      <p class="section-sub">Completa el formulario y te llevamos directo a WhatsApp con tu pedido listo.</p>
+      <div class="order-form">
+        <label>Producto</label>
+        <select id="producto"></select>
+        <label>Detalles</label>
+        <input id="variacion" placeholder="Ej: portada floral, paleta lila, 120 hojas" />
+        <label>Nombre</label>
+        <input id="nombre" placeholder="Tu nombre" />
+        <label>Notas adicionales</label>
+        <textarea id="notas" placeholder="Cuéntame colores, tema, fechas de entrega, etc."></textarea>
+        <button class="btn" id="whatsBtn">Enviar a WhatsApp</button>
+        <small style="opacity:.7">Atención: Lun–Jue 8:00–16:00 · Vie 8:00–15:00. Pagos por Nequi 3053119624</small>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="container">
+    <h3 class="section-title">Preguntas frecuentes</h3>
+    <details>
+      <summary>¿Cómo recibo mi cuaderno digital?</summary>
+      <p>Por enlace de descarga en PDF interactivo (GoodNotes, Notability, Xodo). También por correo.</p>
+    </details>
+    <details>
+      <summary>¿Puedo personalizar portadas y colores?</summary>
+      <p>Sí. Elige paleta, tipografía y estilo. Para personalizaciones profundas usamos un formulario.</p>
+    </details>
+    <details>
+      <summary>¿Cuánto tarda la entrega?</summary>
+      <p>Básicos: 6–12 h. Personalizados: 24–48 h. Premium: hasta 72 h. Confirmo al pedir.</p>
+    </details>
+  </section>
+
+  <footer>
+    <div class="container foot">
+      <div>
+        <div class="brand" style="margin-bottom:8px">
+          <img src="img/logo-flor-de-papel.jpeg" alt="Flor de Papel">
+          <h1 style="color:#f5e5e3">Flor de Papel</h1>
+        </div>
+        <p class="credits">© 2025 Flor de Papel · Uso personal, no redistribuir.</p>
+      </div>
+      <div>
+        <strong>Contacto</strong>
+        <p>WhatsApp: <a href="https://wa.me/573148043556" style="color:#ffe1e7">3148043556</a></p>
+        <p>Email: flordepapel2117@gmail.com</p>
+      </div>
+      <div>
+        <strong>Redes</strong>
+        <p><a style="color:#ffe1e7" href="https://instagram.com/soyflordepapel">Instagram</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const productos = [
+      { id:"rosa", nombre:"Rosa · Presentaciones personalizadas y PDF de estudio", categoria:"Rosa", tags:["Entrega 24–72h"], precio:25000, img:"img/Rosa.png" },
+      { id:"tulipan", nombre:"Tulipán · Infografías, mapas visuales, esquemas", categoria:"Tulipán", tags:["Diseño claro","PDF listo"], precio:15000, img:"img/Tulipan.png" },
+      { id:"peonia", nombre:"Peonía · Tarjetas, invitaciones y diplomas", categoria:"Peonía", tags:["Digital","Personalizable"], precio:6000, img:"img/Peonia.png" },
+      { id:"margarita-basic", nombre:"Margarita · Cuaderno digital básico", categoria:"Margarita", tags:["100 hojas","2 separadores"], precio:15000, img:"img/Margarita-Basico.png" },
+      { id:"margarita-personalizado", nombre:"Margarita · Cuaderno personalizado", categoria:"Margarita", tags:["120 hojas","5 separadores","5 stickers"], precio:18000, img:"img/Margarita-Personalizado.png" },
+      { id:"margarita-premium", nombre:"Margarita · Cuaderno premium", categoria:"Margarita", tags:["250 hojas","11 separadores","8 stickers"], precio:25000, img:"img/Margarita-Premium.png" },
+      // Kits sin imagen
+      { id:"kit-doble", nombre:"Kit Margarita Doble", categoria:"Kits", tags:["3 cuadernos personalizados","Pack 15 stickers","1 sorpresa"], precio:55000, img:"" },
+      { id:"kit-jardin", nombre:"Kit Jardín Premium", categoria:"Kits", tags:["2 premium","1 personalizado","25 stickers","1 sorpresa"], precio:70000, img:"" }
+    ];
+
+    const cards = document.getElementById('cards');
+    productos.forEach(p => {
+      const el = document.createElement('article');
+      el.className = 'card';
+      el.innerHTML = `
+        ${p.img ? `<img src="${p.img}" alt="${p.nombre}">` : ""}
+        <span class="pill">${p.categoria}</span>
+        <h3>${p.nombre}</h3>
+        <p style="opacity:.85">${p.tags.join(' · ')}</p>
+        <div class="price">$ ${p.precio.toLocaleString('es-CO')}</div>
+      `;
+      cards.appendChild(el);
+    });
+
+    const select = document.getElementById('producto');
+    productos.forEach(p => {
+      const opt = document.createElement('option');
+      opt.value = p.id;
+      opt.textContent = `${p.nombre} — $ ${p.precio.toLocaleString('es-CO')}`;
+      select.appendChild(opt);
+    });
+
+    const WA_NUMBER = '573148043556';
+    document.getElementById('whatsBtn').addEventListener('click', () => {
+      const prod = productos.find(p => p.id === select.value);
+      const vari = document.getElementById('variacion').value.trim();
+      const nom = document.getElementById('nombre').value.trim() || 'Cliente';
+      const notas = document.getElementById('notas').value.trim();
+      let msg = "Hola, soy " + nom +
+      "\nQuiero pedir: " + prod.nombre +
+      "\nPrecio: $ " + prod.precio.toLocaleString('es-CO') + " COP" +
+      "\n\nDetalles: " + (vari || "Ninguno") +
+      "\nNotas: " + (notas || "Ninguna") +
+      "\n\nMétodo de pago: Nequi 3053119624" +
+      "\n¿Está disponible?";     
+       const url = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`;
+  window.open(url, '_blank');    
+  });
+  </script>
+</body>
+</html>
